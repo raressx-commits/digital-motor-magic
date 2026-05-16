@@ -1,15 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { ArrowRight, Cpu, Gauge, Sigma, Activity, Waves, Circle } from "lucide-react";
-import { MotorVisual } from "@/components/MotorVisual";
 import { BlockDiagram } from "@/components/BlockDiagram";
+import { ZPlane } from "@/components/ZPlane";
 import { Section, Card } from "@/components/Section";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Transformata Z în controlul digital al motoarelor electrice" },
-      { name: "description", content: "Stabilitate, răspuns tranzitoriu și aplicații în Inginerie Electrică. Proiect interactiv cu simulator." },
+      { name: "description", content: "Stabilitate, răspuns tranzitoriu și aplicații în Inginerie Electrică." },
     ],
   }),
   component: Home,
@@ -41,13 +41,13 @@ function Home() {
               polii din planul Z.
             </motion.p>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }} className="mt-8 flex flex-wrap gap-3">
-              <Link to="/simulator"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition shadow-[var(--shadow-glow)]">
-                Explorează simulatorul <ArrowRight className="w-4 h-4" />
-              </Link>
               <Link to="/transformata-z"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition shadow-[var(--shadow-glow)]">
+                Vezi teoria <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link to="/stabilitate"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-border hover:bg-accent transition">
-                Vezi teoria
+                Criteriul |z| &lt; 1
               </Link>
             </motion.div>
             <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
@@ -58,11 +58,15 @@ function Home() {
           </div>
 
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}
-            className="relative aspect-square max-w-lg mx-auto">
+            className="relative aspect-square max-w-lg mx-auto flex items-center justify-center">
             <div className="absolute inset-0 rounded-full bg-primary/10 blur-3xl" />
-            <div className="relative w-full h-full">
-              <MotorVisual speed={1.2} />
-            </div>
+            <Card className="relative p-6 w-full">
+              <div className="text-xs mono uppercase tracking-wider text-muted-foreground">planul Z</div>
+              <h3 className="font-display text-lg font-semibold mt-1 mb-3">Pol în interiorul cercului unitate</h3>
+              <div className="flex justify-center">
+                <ZPlane poleReal={0.6} size={320} />
+              </div>
+            </Card>
           </motion.div>
         </div>
       </section>
@@ -111,9 +115,9 @@ function Home() {
           <FeatureCard
             icon={Gauge}
             color="pwm"
-            title="Simulator interactiv"
-            text="Modifică K, a, b și referința. Vezi polul în planul Z și răspunsul motorului în timp real."
-            to="/simulator"
+            title="Control digital & PWM"
+            text="Bucla referință → eroare → comandă → PWM, pas cu pas."
+            to="/control-digital"
           />
         </div>
       </Section>
@@ -148,28 +152,6 @@ function Home() {
             app="control digital, motoare, microcontrolere"
             highlight
           />
-        </div>
-      </Section>
-
-      {/* CTA */}
-      <Section>
-        <div className="rounded-3xl overflow-hidden border border-primary/30 relative"
-          style={{ background: "var(--gradient-electric)" }}>
-          <div className="absolute inset-0 grid-bg opacity-15" />
-          <div className="relative p-10 md:p-14 grid md:grid-cols-[1fr_auto] gap-6 items-center">
-            <div>
-              <h3 className="font-display text-3xl md:text-4xl font-bold text-primary-foreground">
-                Învârte motorul. Mută polul. Vezi stabilitatea.
-              </h3>
-              <p className="mt-2 text-primary-foreground/80 max-w-xl">
-                Simulatorul rezolvă în timp real ecuația de recurență închisă în buclă și plasează polul în planul Z.
-              </p>
-            </div>
-            <Link to="/simulator"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-background text-foreground font-medium hover:bg-card transition">
-              Deschide simulatorul <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </Section>
     </>
