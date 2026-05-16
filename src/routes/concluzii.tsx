@@ -48,7 +48,6 @@ function Page() {
             "Funcția de transfer H(z)",
             "Polii în planul Z și cercul unitate",
             "Criteriul de stabilitate |z| < 1",
-            "Simulator interactiv",
             "Răspuns tranzitoriu",
             "Legătura cu PWM",
             "Aplicații reale în Inginerie Electrică",
@@ -70,9 +69,9 @@ function Page() {
           <p>· Note de seminar: ecuații de recurență, funcția de transfer H(z)</p>
           <p>· Bibliografie suport: K. Ogata — Discrete-Time Control Systems</p>
         </div>
-        <Link to="/simulator"
+        <Link to="/transformata-z"
           className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition shadow-[var(--shadow-glow)]">
-          Revino la simulator <ArrowRight className="w-4 h-4" />
+          Revino la teorie <ArrowRight className="w-4 h-4" />
         </Link>
       </Section>
     </>

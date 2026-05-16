@@ -44,7 +44,7 @@ function Page() {
       </Section>
 
       <Section>
-        <h2 className="font-display text-2xl md:text-3xl font-bold">Control bun vs control prost</h2>
+        <h2 className="font-display text-2xl md:text-3xl font-bold">Control bun vs control nepotrivit</h2>
         <div className="grid md:grid-cols-2 gap-5 mt-6">
           <div className="rounded-2xl p-6 border" style={{ borderColor: "var(--unstable)", background: "color-mix(in oklab, var(--unstable) 8%, transparent)" }}>
             <div className="mono text-xs uppercase tracking-wider" style={{ color: "var(--unstable)" }}>control instabil</div>
