@@ -1,9 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageHero, Section, Card } from "@/components/Section";
 import { Formula } from "@/components/Formula";
-import { MotorVisual } from "@/components/MotorVisual";
-import { useState } from "react";
-import { Slider } from "@/components/ui/slider";
 
 export const Route = createFileRoute("/model-motor")({
   head: () => ({
@@ -16,7 +13,6 @@ export const Route = createFileRoute("/model-motor")({
 });
 
 function Page() {
-  const [u, setU] = useState(0.6);
   return (
     <>
       <PageHero
@@ -26,18 +22,20 @@ function Page() {
       />
 
       <Section>
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <Card className="aspect-square max-w-md mx-auto w-full p-4">
-            <MotorVisual speed={u * 4} />
-            <div className="mt-2 px-2">
-              <div className="flex justify-between text-xs mono">
-                <span className="text-muted-foreground">comandă u</span>
-                <span className="text-primary">{u.toFixed(2)}</span>
-              </div>
-              <Slider value={[u]} min={0} max={1} step={0.01} onValueChange={(v) => setU(v[0])} className="mt-2" />
-              <p className="text-xs text-muted-foreground mt-2">
-                Mărește comanda și motorul accelerează. Animația leagă matematica de fizica reală.
-              </p>
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <Card className="p-6">
+            <div className="text-xs mono uppercase tracking-wider text-muted-foreground">ecuația de recurență</div>
+            <h3 className="font-display text-xl font-bold mt-1">Modelul discret al motorului</h3>
+            <Formula block>{String.raw`y[n+1] = a\, y[n] + b\, u[n]`}</Formula>
+            <p className="text-sm text-muted-foreground">
+              Pornind de la tipul de ecuații cu recurență studiate la Transformata Z,
+              modelăm simplificat sistemul digital prin această relație.
+            </p>
+            <div className="mt-5 grid sm:grid-cols-2 gap-3 text-sm">
+              <Item k="y[n]" v="ieșirea sistemului la pasul n (turația motorului)" />
+              <Item k="u[n]" v="intrarea sistemului la pasul n (semnalul de comandă)" />
+              <Item k="a"   v="cât din starea anterioară se păstrează" />
+              <Item k="b"   v="cât de puternic influențează comanda evoluția sistemului" />
             </div>
           </Card>
 
@@ -49,15 +47,19 @@ function Page() {
               <li><span className="text-foreground font-medium">Perturbații:</span> sarcină mecanică, frecare, variații de tensiune</li>
               <li><span className="text-foreground font-medium">Controller:</span> algoritm digital care modifică intrarea</li>
             </ul>
-            <div className="mt-6">
-              <Formula block>{String.raw`y[n+1] = a\, y[n] + b\, u[n]`}</Formula>
-              <div className="grid sm:grid-cols-2 gap-3 mt-2 text-sm">
-                <Item k="y[n]" v="turația motorului la pasul n" />
-                <Item k="u[n]" v="comanda aplicată motorului" />
-                <Item k="a"   v="cât din starea anterioară se păstrează" />
-                <Item k="b"   v="cât de puternic influențează comanda motorul" />
-              </div>
-            </div>
+
+            <Card className="mt-6 p-5">
+              <div className="text-xs mono uppercase tracking-wider text-muted-foreground">funcția de transfer</div>
+              <Formula block>{String.raw`H(z) = \dfrac{Y(z)}{U(z)}`}</Formula>
+              <p className="text-sm text-muted-foreground">
+                Pentru un sistem discret simplificat, o formă posibilă este:
+              </p>
+              <Formula block>{String.raw`H(z) = \dfrac{b}{z - a}`}</Formula>
+              <p className="text-sm text-muted-foreground">
+                Numitorul determină polii sistemului. În exemplul de mai sus, polul este <Formula>{`z = a`}</Formula>.
+                Stabilitatea depinde de poziția acestui pol în planul complex <Formula>{`z`}</Formula>.
+              </p>
+            </Card>
           </div>
         </div>
       </Section>
@@ -66,7 +68,7 @@ function Page() {
         <div className="grid md:grid-cols-3 gap-5">
           <Behaviour color="oklch(0.78 0.22 145)" title="a ≈ 1" text="Motorul reacționează lent și păstrează mult din starea anterioară." />
           <Behaviour color="oklch(0.72 0.18 240)" title="a mic" text="Sistemul se stabilizează rapid la valoarea dorită." />
-          <Behaviour color="oklch(0.65 0.26 25)" title="parametri prost aleși" text="Sistemul poate oscila puternic sau deveni instabil." />
+          <Behaviour color="oklch(0.65 0.26 25)" title="parametri nepotriviți" text="Sistemul poate oscila puternic sau deveni instabil." />
         </div>
       </Section>
     </>

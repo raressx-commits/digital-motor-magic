@@ -8,7 +8,6 @@ const links = [
   { to: "/model-motor", label: "Modelul motorului" },
   { to: "/control-digital", label: "Control digital" },
   { to: "/stabilitate", label: "Stabilitate" },
-  { to: "/simulator", label: "Simulator" },
   { to: "/aplicatii", label: "Aplicații" },
   { to: "/concluzii", label: "Concluzii" },
 ] as const;

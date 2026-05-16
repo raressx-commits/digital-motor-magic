@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TransformataZRouteImport } from './routes/transformata-z'
 import { Route as StabilitateRouteImport } from './routes/stabilitate'
-import { Route as SimulatorRouteImport } from './routes/simulator'
 import { Route as ModelMotorRouteImport } from './routes/model-motor'
 import { Route as ControlDigitalRouteImport } from './routes/control-digital'
 import { Route as ConcluziiRouteImport } from './routes/concluzii'
@@ -26,11 +25,6 @@ const TransformataZRoute = TransformataZRouteImport.update({
 const StabilitateRoute = StabilitateRouteImport.update({
   id: '/stabilitate',
   path: '/stabilitate',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SimulatorRoute = SimulatorRouteImport.update({
-  id: '/simulator',
-  path: '/simulator',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ModelMotorRoute = ModelMotorRouteImport.update({
@@ -65,7 +59,6 @@ export interface FileRoutesByFullPath {
   '/concluzii': typeof ConcluziiRoute
   '/control-digital': typeof ControlDigitalRoute
   '/model-motor': typeof ModelMotorRoute
-  '/simulator': typeof SimulatorRoute
   '/stabilitate': typeof StabilitateRoute
   '/transformata-z': typeof TransformataZRoute
 }
@@ -75,7 +68,6 @@ export interface FileRoutesByTo {
   '/concluzii': typeof ConcluziiRoute
   '/control-digital': typeof ControlDigitalRoute
   '/model-motor': typeof ModelMotorRoute
-  '/simulator': typeof SimulatorRoute
   '/stabilitate': typeof StabilitateRoute
   '/transformata-z': typeof TransformataZRoute
 }
@@ -86,7 +78,6 @@ export interface FileRoutesById {
   '/concluzii': typeof ConcluziiRoute
   '/control-digital': typeof ControlDigitalRoute
   '/model-motor': typeof ModelMotorRoute
-  '/simulator': typeof SimulatorRoute
   '/stabilitate': typeof StabilitateRoute
   '/transformata-z': typeof TransformataZRoute
 }
@@ -98,7 +89,6 @@ export interface FileRouteTypes {
     | '/concluzii'
     | '/control-digital'
     | '/model-motor'
-    | '/simulator'
     | '/stabilitate'
     | '/transformata-z'
   fileRoutesByTo: FileRoutesByTo
@@ -108,7 +98,6 @@ export interface FileRouteTypes {
     | '/concluzii'
     | '/control-digital'
     | '/model-motor'
-    | '/simulator'
     | '/stabilitate'
     | '/transformata-z'
   id:
@@ -118,7 +107,6 @@ export interface FileRouteTypes {
     | '/concluzii'
     | '/control-digital'
     | '/model-motor'
-    | '/simulator'
     | '/stabilitate'
     | '/transformata-z'
   fileRoutesById: FileRoutesById
@@ -129,7 +117,6 @@ export interface RootRouteChildren {
   ConcluziiRoute: typeof ConcluziiRoute
   ControlDigitalRoute: typeof ControlDigitalRoute
   ModelMotorRoute: typeof ModelMotorRoute
-  SimulatorRoute: typeof SimulatorRoute
   StabilitateRoute: typeof StabilitateRoute
   TransformataZRoute: typeof TransformataZRoute
 }
@@ -148,13 +135,6 @@ declare module '@tanstack/react-router' {
       path: '/stabilitate'
       fullPath: '/stabilitate'
       preLoaderRoute: typeof StabilitateRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/simulator': {
-      id: '/simulator'
-      path: '/simulator'
-      fullPath: '/simulator'
-      preLoaderRoute: typeof SimulatorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/model-motor': {
@@ -201,7 +181,6 @@ const rootRouteChildren: RootRouteChildren = {
   ConcluziiRoute: ConcluziiRoute,
   ControlDigitalRoute: ControlDigitalRoute,
   ModelMotorRoute: ModelMotorRoute,
-  SimulatorRoute: SimulatorRoute,
   StabilitateRoute: StabilitateRoute,
   TransformataZRoute: TransformataZRoute,
 }

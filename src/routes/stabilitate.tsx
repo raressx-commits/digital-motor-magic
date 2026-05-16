@@ -80,7 +80,7 @@ function Page() {
         <Card className="p-8">
           <h3 className="font-display text-xl font-bold">De ce contează în Inginerie Electrică?</h3>
           <p className="text-muted-foreground mt-3 max-w-3xl">
-            În sistemele continue, stabilitatea se analizează prin poziția polilor în planul <Formula>{`s`}</Formula>
+            În sistemele continue, stabilitatea se analizează prin poziția polilor în planul <Formula>{`p`}</Formula>
             (semiplanul stâng). În sistemele discrete, criteriul corespunzător este cercul unitate din planul <Formula>{`z`}</Formula>.
             Pentru controlul digital al motorului, alegerea parametrilor controllerului trebuie să păstreze polii buclei închise
             în interiorul cercului unitate.

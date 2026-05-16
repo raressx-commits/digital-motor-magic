@@ -21,7 +21,7 @@ export function SiteFooter() {
         <div>
           <p className="font-display font-semibold text-foreground">Navigare</p>
           <ul className="mt-2 space-y-1 text-muted-foreground">
-            <li><Link to="/simulator" className="hover:text-primary">Simulator interactiv</Link></li>
+            <li><Link to="/transformata-z" className="hover:text-primary">Transformata Z</Link></li>
             <li><Link to="/stabilitate" className="hover:text-primary">Cercul unitate</Link></li>
             <li><Link to="/concluzii" className="hover:text-primary">Concluzii</Link></li>
           </ul>

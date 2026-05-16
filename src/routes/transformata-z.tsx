@@ -39,16 +39,23 @@ function Page() {
           <Card>
             <div className="mono text-xs uppercase tracking-wider text-muted-foreground">analogie</div>
             <h3 className="font-display text-xl font-bold mt-1">Laplace ↔ Z</h3>
+            <p className="text-sm text-muted-foreground mt-2">
+              În curs, Transformata Laplace este notată cu variabila complexă <Formula>{`p`}</Formula>:
+            </p>
+            <Formula block>{String.raw`F(p) = \mathcal{L}\{f(t)\} = \int_0^\infty f(t)\, e^{-pt}\, dt`}</Formula>
+            <p className="text-sm text-muted-foreground">
+              unde <Formula>{`f(t)`}</Formula> este funcția originală, iar <Formula>{`F(p)`}</Formula> este funcția imagine.
+            </p>
             <div className="mt-4 grid grid-cols-2 gap-4 text-sm">
               <div>
                 <div className="mono text-xs text-muted-foreground">CONTINUU</div>
-                <Formula block>{String.raw`F(s) = \int_0^\infty f(t)\, e^{-st}\, dt`}</Formula>
-                <p className="text-muted-foreground">analiză a ecuațiilor diferențiale</p>
+                <Formula block>{String.raw`F(p) = \int_0^\infty f(t)\, e^{-pt}\, dt`}</Formula>
+                <p className="text-muted-foreground">funcții continue · ecuații diferențiale</p>
               </div>
               <div>
                 <div className="mono text-xs text-muted-foreground">DISCRET</div>
                 <Formula block>{String.raw`F(z) = \sum_{n=0}^\infty f(n)\, z^{-n}`}</Formula>
-                <p className="text-muted-foreground">analiză a ecuațiilor de recurență</p>
+                <p className="text-muted-foreground">funcții discrete · ecuații cu recurențe</p>
               </div>
             </div>
           </Card>
@@ -88,8 +95,8 @@ function Page() {
           <h2 className="font-display text-2xl font-bold mt-3">Transformate de bază</h2>
           <div className="mt-4 grid md:grid-cols-3 gap-4 text-sm">
             <Example f={String.raw`\delta[n]`} F={String.raw`1`} note="impuls unitar" />
-            <Example f={String.raw`1[n]`} F={String.raw`\dfrac{z}{z-1}`} note="treaptă unitară" />
-            <Example f={String.raw`a^n`} F={String.raw`\dfrac{z}{z-a}`} note="exponențial discret" />
+            <Example f={String.raw`1[n]`} F={String.raw`\dfrac{z}{z-1},\ |z|>1`} note="treaptă unitară" />
+            <Example f={String.raw`a^n`} F={String.raw`\dfrac{z}{z-a},\ |z|>|a|`} note="exponențial discret" />
           </div>
         </Card>
       </Section>
