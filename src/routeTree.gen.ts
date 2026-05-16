@@ -9,8 +9,50 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TransformataZRouteImport } from './routes/transformata-z'
+import { Route as StabilitateRouteImport } from './routes/stabilitate'
+import { Route as SimulatorRouteImport } from './routes/simulator'
+import { Route as ModelMotorRouteImport } from './routes/model-motor'
+import { Route as ControlDigitalRouteImport } from './routes/control-digital'
+import { Route as ConcluziiRouteImport } from './routes/concluzii'
+import { Route as AplicatiiRouteImport } from './routes/aplicatii'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TransformataZRoute = TransformataZRouteImport.update({
+  id: '/transformata-z',
+  path: '/transformata-z',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StabilitateRoute = StabilitateRouteImport.update({
+  id: '/stabilitate',
+  path: '/stabilitate',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SimulatorRoute = SimulatorRouteImport.update({
+  id: '/simulator',
+  path: '/simulator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ModelMotorRoute = ModelMotorRouteImport.update({
+  id: '/model-motor',
+  path: '/model-motor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ControlDigitalRoute = ControlDigitalRouteImport.update({
+  id: '/control-digital',
+  path: '/control-digital',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConcluziiRoute = ConcluziiRouteImport.update({
+  id: '/concluzii',
+  path: '/concluzii',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AplicatiiRoute = AplicatiiRouteImport.update({
+  id: '/aplicatii',
+  path: '/aplicatii',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +61,130 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aplicatii': typeof AplicatiiRoute
+  '/concluzii': typeof ConcluziiRoute
+  '/control-digital': typeof ControlDigitalRoute
+  '/model-motor': typeof ModelMotorRoute
+  '/simulator': typeof SimulatorRoute
+  '/stabilitate': typeof StabilitateRoute
+  '/transformata-z': typeof TransformataZRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aplicatii': typeof AplicatiiRoute
+  '/concluzii': typeof ConcluziiRoute
+  '/control-digital': typeof ControlDigitalRoute
+  '/model-motor': typeof ModelMotorRoute
+  '/simulator': typeof SimulatorRoute
+  '/stabilitate': typeof StabilitateRoute
+  '/transformata-z': typeof TransformataZRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aplicatii': typeof AplicatiiRoute
+  '/concluzii': typeof ConcluziiRoute
+  '/control-digital': typeof ControlDigitalRoute
+  '/model-motor': typeof ModelMotorRoute
+  '/simulator': typeof SimulatorRoute
+  '/stabilitate': typeof StabilitateRoute
+  '/transformata-z': typeof TransformataZRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/aplicatii'
+    | '/concluzii'
+    | '/control-digital'
+    | '/model-motor'
+    | '/simulator'
+    | '/stabilitate'
+    | '/transformata-z'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/aplicatii'
+    | '/concluzii'
+    | '/control-digital'
+    | '/model-motor'
+    | '/simulator'
+    | '/stabilitate'
+    | '/transformata-z'
+  id:
+    | '__root__'
+    | '/'
+    | '/aplicatii'
+    | '/concluzii'
+    | '/control-digital'
+    | '/model-motor'
+    | '/simulator'
+    | '/stabilitate'
+    | '/transformata-z'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AplicatiiRoute: typeof AplicatiiRoute
+  ConcluziiRoute: typeof ConcluziiRoute
+  ControlDigitalRoute: typeof ControlDigitalRoute
+  ModelMotorRoute: typeof ModelMotorRoute
+  SimulatorRoute: typeof SimulatorRoute
+  StabilitateRoute: typeof StabilitateRoute
+  TransformataZRoute: typeof TransformataZRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/transformata-z': {
+      id: '/transformata-z'
+      path: '/transformata-z'
+      fullPath: '/transformata-z'
+      preLoaderRoute: typeof TransformataZRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/stabilitate': {
+      id: '/stabilitate'
+      path: '/stabilitate'
+      fullPath: '/stabilitate'
+      preLoaderRoute: typeof StabilitateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/simulator': {
+      id: '/simulator'
+      path: '/simulator'
+      fullPath: '/simulator'
+      preLoaderRoute: typeof SimulatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/model-motor': {
+      id: '/model-motor'
+      path: '/model-motor'
+      fullPath: '/model-motor'
+      preLoaderRoute: typeof ModelMotorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/control-digital': {
+      id: '/control-digital'
+      path: '/control-digital'
+      fullPath: '/control-digital'
+      preLoaderRoute: typeof ControlDigitalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/concluzii': {
+      id: '/concluzii'
+      path: '/concluzii'
+      fullPath: '/concluzii'
+      preLoaderRoute: typeof ConcluziiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aplicatii': {
+      id: '/aplicatii'
+      path: '/aplicatii'
+      fullPath: '/aplicatii'
+      preLoaderRoute: typeof AplicatiiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +197,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AplicatiiRoute: AplicatiiRoute,
+  ConcluziiRoute: ConcluziiRoute,
+  ControlDigitalRoute: ControlDigitalRoute,
+  ModelMotorRoute: ModelMotorRoute,
+  SimulatorRoute: SimulatorRoute,
+  StabilitateRoute: StabilitateRoute,
+  TransformataZRoute: TransformataZRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
