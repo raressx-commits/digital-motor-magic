@@ -23,23 +23,24 @@ function Home() {
         <div className="absolute inset-0 grid-bg opacity-30 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
         <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-20 md:pt-24 md:pb-28 grid lg:grid-cols-[1.1fr_1fr] gap-10 items-center">
           <div>
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="pill text-primary border-primary/40">
-              <Sigma className="w-3.5 h-3.5" /> Calcul Operațional · Cursul 12
-            </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.05 }}
               className="mt-5 font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-tight"
             >
               Transformata <span className="text-primary glow-text">Z</span> în controlul digital al motoarelor electrice
             </motion.h1>
-            <motion.p
+            <motion.div
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.15 }}
-              className="mt-5 text-lg text-muted-foreground max-w-xl"
+              className="mt-6 rounded-xl border border-primary/30 bg-primary/5 p-5 max-w-xl"
             >
-              Stabilitate, răspuns tranzitoriu și aplicații în Inginerie Electrică. De la
-              ecuația de recurență <code className="mono text-primary">y[n+1] = a·y[n] + b·u[n]</code> la
-              polii din planul Z.
-            </motion.p>
+              <div className="mono text-[11px] uppercase tracking-wider text-primary">Studenți</div>
+              <p className="mt-2 font-display text-base md:text-lg text-foreground">
+                Nica Rareș-Mihai · Năstase Ștefan-Robert · Cioc Ruben-Samuel
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Facultatea de Inginerie Electrică · Politehnica · Grupa 115B
+              </p>
+            </motion.div>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.25 }} className="mt-8 flex flex-wrap gap-3">
               <Link to="/transformata-z"
                 className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition shadow-[var(--shadow-glow)]">

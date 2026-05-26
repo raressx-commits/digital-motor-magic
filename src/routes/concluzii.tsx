@@ -61,14 +61,47 @@ function Page() {
       </Section>
 
       <Section>
-        <h2 className="font-display text-2xl md:text-3xl font-bold">Bibliografie</h2>
-        <div className="mt-4 space-y-2 text-muted-foreground">
-          <p>· Cursul 9–10 — Serii și Transformata Fourier</p>
-          <p>· Cursul 11 — Transformata Laplace</p>
-          <p>· Cursul 12 — Transformata Z (definiție, funcție original/imagine)</p>
-          <p>· Note de seminar: ecuații de recurență, funcția de transfer H(z)</p>
-          <p>· Bibliografie suport: K. Ogata — Discrete-Time Control Systems</p>
+        <h2 className="font-display text-2xl md:text-3xl font-bold">Materia conexă</h2>
+        <div className="mt-4 grid sm:grid-cols-3 gap-4">
+          {[
+            ["Curs 9–10", "Serii și Transformata Fourier"],
+            ["Curs 11", "Transformata Laplace"],
+            ["Curs 12", "Transformata Z"],
+          ].map(([t, d]) => (
+            <Card key={t} className="p-5">
+              <div className="mono text-xs uppercase tracking-wider text-primary">{t}</div>
+              <div className="mt-1 font-display font-semibold">{d}</div>
+            </Card>
+          ))}
         </div>
+      </Section>
+
+      <Section>
+        <h2 className="font-display text-2xl md:text-3xl font-bold">Bibliografie</h2>
+        <ol className="mt-6 space-y-3">
+          {[
+            "Simona Bibic, Curs 12 (MS) — Calcul Operațional (4): Transformata Z.",
+            "Dumitru Popescu, Conducerea numerică a proceselor, Editura AGIR, București, 2004.",
+            "D. Stanomir, O. Stănășilă, Metode matematice în teoria semnalelor, Editura Tehnică, București, 1980.",
+            "R. Dobrescu, Semnale și sisteme, Editura Politehnica Press, București, 2007.",
+            "D. Popescu, Conducerea numerică a proceselor, Editura AGIR, București, 2004.",
+            "V. Surpățeanu, A. G. Stan, Microcontrolere. Arhitectură și aplicații, Editura Matrix Rom, București, 2011.",
+            "N. Muntean, M. Rădulescu, Acționări electrice și controlul motoarelor, Editura Orizonturi Universitare, Timișoara, 2010.",
+            "D. Ștefănoiu, Prelucrarea numerică a semnalelor, Editura Matrix Rom, București, 2010.",
+            "V. Răsvan, Teoria sistemelor automate, Editura Tehnică, București, 2000.",
+            "R.-E. Precup, Conducerea numerică a proceselor, Editura Orizonturi Universitare, Timișoara, 2004.",
+            "S. Călin, Regulatoare automate, Editura Didactică și Pedagogică, București, 1985.",
+            "E. Ceangă, Sisteme cu microprocesoare în conducerea proceselor, Editura Tehnică, București, 1993.",
+            "C. Rădoi, Electronică de putere: convertoare statice, comanda PWM, Editura Tehnică, București, 2000.",
+            "A. Câmpeanu, Mașini și acționări electrice, Editura Universitaria, Craiova, 2001.",
+            "D. A. Stoichescu, Microprocesoare și microcontrolere, Editura Politehnica Press, București, 2007.",
+          ].map((ref, i) => (
+            <div key={i} className="flex gap-4 rounded-xl border border-border p-4 bg-card/40">
+              <span className="mono text-xs text-primary shrink-0 mt-0.5">[{i + 1}]</span>
+              <span className="text-sm text-foreground/90 leading-relaxed">{ref}</span>
+            </div>
+          ))}
+        </ol>
         <Link to="/transformata-z"
           className="mt-8 inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition shadow-[var(--shadow-glow)]">
           Revino la teorie <ArrowRight className="w-4 h-4" />
