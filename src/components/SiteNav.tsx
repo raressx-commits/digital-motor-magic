@@ -23,7 +23,7 @@ export function SiteNav() {
           <span className="grid place-items-center w-8 h-8 rounded-md bg-primary/15 text-primary border border-primary/30">
             <CircuitBoard className="w-4 h-4" />
           </span>
-          <span className="hidden sm:inline">Z<span className="text-primary">·</span>Motor</span>
+          <span className="hidden sm:inline">Transformata <span className="text-primary">Z</span></span>
         </Link>
         <nav className="hidden lg:flex items-center gap-1">
           {links.map((l) => {
